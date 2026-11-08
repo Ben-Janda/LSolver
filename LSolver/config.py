@@ -15,8 +15,11 @@ class SimulationConfig:
     # Discretization
     t_max: float
     dt: float
+    m: float = None
     x0: float = 0.0
+    vx0: float = 0.0
     y0: float = 0.0
+    vy0: float = 0.0
     
     # Physical parameters of y (optional)
     Fy_func: TimeDependentFunc = lambda t,x,y : 0.0
