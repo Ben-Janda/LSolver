@@ -1,4 +1,4 @@
-# Molecular motor simulation
+# Langevin Dynamics Simulation
 
 This repository contains the package `LSolver` along with example notebooks demonstrating multiple applications and tests of the package.
 
