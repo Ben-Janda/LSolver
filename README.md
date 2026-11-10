@@ -1,4 +1,4 @@
-# Langevin Dynamics Simulation
+# `LSolver`: Python package for Langevin dynamics simulations
 
 This repository contains the package `LSolver` along with example notebooks demonstrating multiple applications and tests of the package.
 
