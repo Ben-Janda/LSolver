@@ -65,7 +65,7 @@ Simulates underdamped Langevin equation with 2 DoF using the Verlet-type algorit
 ### `LSolver.mixed`
 
 ```python
-LSolver.underdamped(config: SimulationConfig, rng: numpy.random.Generator = None) -> tuple[numpy.ndarray, numpy.ndarray, numpy.ndarray, numpy.ndarray]
+LSolver.mixed(config: SimulationConfig, rng: numpy.random.Generator = None) -> tuple[numpy.ndarray, numpy.ndarray, numpy.ndarray]
 ```
 Simulates Langevin equation, overdamped in $x$-coordinate and underdamped in $y$-coordinate, using Euler-Maruyama and Verlet-type [1] algorithms.
 
