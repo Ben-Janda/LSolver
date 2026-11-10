@@ -31,13 +31,13 @@ class SimulationConfig:
     num_steps: int = field(init=False, repr=False)
     
     def __post_init__(self):
-        n_steps = int(np.ceil(self.t_max / self.dt))
-        t_arr = np.linspace(0, self.t_max, n_steps)
-        
-        object.__setattr__(self, 'num_steps', n_steps)
-        object.__setattr__(self, 't_array', t_arr)
-        
         if self.gamma <= 0:
             raise ValueError("Friction coefficient gamma has to be positive.")
         if self.dt <= 0:
             raise ValueError("Timestep dt has to be positive.")
+        
+        n_steps = int(np.ceil(self.t_max / self.dt)) + 1
+        t_arr = np.arange(n_steps) * self.dt
+        
+        object.__setattr__(self, 'num_steps', n_steps)
+        object.__setattr__(self, 't_array', t_arr)

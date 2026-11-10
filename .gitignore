@@ -22,6 +22,9 @@ backup_files/
 graphics/
 test.py
 
+# Testing:
+.pytest_cache/
+
 # System:
 .DS_Store
 Thumbs.db
@@ -35,3 +38,4 @@ main.py
 MC.py
 tde_3d.html
 params.json
+.git

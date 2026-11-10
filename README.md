@@ -4,11 +4,11 @@ This repository contains package `LSolver` and example notebooks with multiple a
 
 ## Overview
 
-The package `LSolver` is lightweight package that uses two algorithms for solving Langevin equation in under/over- damped regime. For overdamped regime, we have used the traditional Euler-Maruyama discretization method. For underdamped regime, we have used Verlet-type algorithm of [1].
+The package `LSolver` is a lightweight package that uses two algorithms for solving Langevin equation in under/over- damped regime. For overdamped regime, we have used the traditional Euler-Maruyama discretization method. For underdamped regime, we have used Verlet-type algorithm of [1].
 
 ### Supported equations
 
-Any overdamped Langevin equation(s) of following type can be numerically solved with the method `LSolver.overdamped`:
+Any overdamped Langevin equation(s) of the following type can be numerically solved with the method `LSolver.overdamped`:
 
 $$
 \dot x(t) = \frac{1}{\gamma}F_x(x(t),y(t),t) + [2k_B T_x(x(t),y(t),t)/\gamma]^{1/2}\ \xi_x(t),
@@ -52,7 +52,7 @@ There are several examples of using the `LSolver` package in jupyter notebooks. 
 1. `01_Intro` tests the implemented Euler-Maruyama algorithm (`LSolver.overdamped`) on the example of brownian particle in harmonic potential, confronting the numerical solution with analytical solution.
 2. `02_Feynmans-ratchet` applies `LSolver.overdamped` on the famous Feynman's ratchet and pawl system, with(out) weight and with(out) cooling of the pawl, showing how this system could generate usable work for pulling the weight up.
 3. `03_Stirling-engine` applies `LSolver.overdamped` on system of brownian particle inside optical tweezers, working in Stirling-like cycles. Contains calculation of generated work and checks the Thermodynamic Uncertainty Relations.
-4. `04_Underdamped` tests the implemented Veltet-type algorithm (`LSolver.underdamped`) on several systems, namely free diffusion with friction, constant external force field and harmonic potential in stationary limit, confronting the numerical results with analytical calculations.
+4. `04_Underdamped` tests the implemented Verlet-type algorithm (`LSolver.underdamped`) on several systems, namely free diffusion with friction, constant external force field and harmonic potential in stationary limit, confronting the numerical results with analytical calculations.
 5. `05_TUR` uses `LSolver.mixed` for examination of special system, that was of our interest. This was the main goal of the project.
 
 ## Repository Structure
@@ -61,8 +61,8 @@ There are several examples of using the `LSolver` package in jupyter notebooks. 
 Molecular-Motor/
 ├── LSolver
 |   ├── __init__.py
-|   ├── config.py
-|   └── engine.py
+|   ├── config.py               <-- Dataclass SimulationConfig
+|   └── engine.py               <-- Methods underdamped, overdamped, mixed
 ├── .gitignore
 ├── 01_Intro.ipynb
 ├── 02_Feynmans-ratchet.ipynb

@@ -19,6 +19,8 @@ def overdamped(config: SimulationConfig, rng: np.random.Generator = None) -> tup
     if rng is None:
         rng = np.random.default_rng()
     
+    rng_x, rng_y = rng.spawn(2)
+    
     N = config.num_steps
     dt = config.dt
     gamma = config.gamma
@@ -28,8 +30,8 @@ def overdamped(config: SimulationConfig, rng: np.random.Generator = None) -> tup
     y = np.empty(N)
     x[0] = config.x0
     y[0] = config.y0
-    eta_x = rng.normal(0, 1, N-1)
-    eta_y = rng.normal(0, 1, N-1)
+    eta_x = rng_x.normal(0, 1, N-1)
+    eta_y = rng_y.normal(0, 1, N-1)
     
     for i in range(N-1):
         t = t_arr[i]
@@ -77,6 +79,8 @@ def underdamped(config: SimulationConfig, rng: np.random.Generator = None) -> tu
     if rng is None:
         rng = np.random.default_rng()
         
+    rng_x, rng_y = rng.spawn(2)
+    
     if config.m is None:
         raise ValueError("Mass of the particle not specified.")
     
@@ -97,8 +101,8 @@ def underdamped(config: SimulationConfig, rng: np.random.Generator = None) -> tu
     y[0] = config.y0
     vx[0] = config.vx0
     vy[0] = config.vy0
-    eta_x = rng.normal(0, 1, N-1)
-    eta_y = rng.normal(0, 1, N-1)
+    eta_x = rng_x.normal(0, 1, N-1)
+    eta_y = rng_y.normal(0, 1, N-1)
     
     for i in range(N-1):
         t = t_arr[i]
@@ -148,6 +152,8 @@ def mixed(config: SimulationConfig, rng: np.random.Generator = None) -> tuple[np
     if rng is None:
         rng = np.random.default_rng()
         
+    rng_x, rng_y = rng.spawn(2)
+        
     if config.m is None:
         raise ValueError("Mass of the particle not specified.")
     
@@ -166,8 +172,8 @@ def mixed(config: SimulationConfig, rng: np.random.Generator = None) -> tuple[np
     x[0] = config.x0
     y[0] = config.y0
     vy[0] = config.vy0
-    eta_x = rng.normal(0, 1, N-1)
-    eta_y = rng.normal(0, 1, N-1)
+    eta_x = rng_x.normal(0, 1, N-1)
+    eta_y = rng_y.normal(0, 1, N-1)
 
     for i in range(N-1):
         t = t_arr[i]
