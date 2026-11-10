@@ -74,3 +74,46 @@ def test_default_values():
     assert cfg.y0 == 0.0
     assert cfg.vy0 == 0.0
     assert cfg.m is None
+    
+def test_invalid_mass_raises_error():
+    with pytest.raises(ValueError, match = "Mass m has to be positive."):
+        SimulationConfig(
+            gamma = 1.0,
+            Fx_func = zeros,
+            Tx_func = zeros,
+            t_max = 1.0,
+            dt = 0.1,
+            m = -1.0
+        )
+        
+    with pytest.raises(ValueError, match = "Mass m has to be positive."):
+        SimulationConfig(
+            gamma = 1.0,
+            Fx_func = zeros,
+            Tx_func = zeros,
+            t_max = 1.0,
+            dt = 0.1,
+            m = 0.0
+        )
+
+def test_explicit_none_mass():
+    cfg = SimulationConfig(
+        gamma=1.0,
+        Fx_func=zeros,
+        Tx_func=zeros,
+        t_max=1.0,
+        dt=0.1,
+        m=None
+    )
+    assert cfg.m is None
+    
+def test_negative_t_max_raises_error():
+    with pytest.raises(ValueError, match = "End time of simulation t_max has to be greater than zero."):
+        SimulationConfig(
+            gamma=1.0,
+            Fx_func=zeros,
+            Tx_func=zeros,
+            t_max=-1.0,
+            dt=0.1
+        )
+    
