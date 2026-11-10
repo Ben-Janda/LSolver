@@ -11,31 +11,31 @@ The package `LSolver` is lightweight package that uses two algorithms for solvin
 Any overdamped Langevin equation(s) of following type can be numerically solved with the method `LSolver.overdamped`:
 
 $$
-\dot x(t) = \frac{1}{\gamma}F_x(x(t),y(t),t) + \sqrt{2k_B T_x(x(t),y(t),t)/\gamma}\ \xi_x(t),
+\dot x(t) = \frac{1}{\gamma}F_x(x(t),y(t),t) + [2k_B T_x(x(t),y(t),t)/\gamma]^{1/2}\ \xi_x(t),
 $$
 
 $$
-\dot y(t) = \frac{1}{\gamma}F_y(x(t),y(t),t) + \sqrt{2k_B T_y(x(t),y(t),t)/\gamma}\ \xi_y(t).
+\dot y(t) = \frac{1}{\gamma}F_y(x(t),y(t),t) + [2k_B T_y(x(t),y(t),t)/\gamma]^{1/2}\ \xi_y(t).
 $$
 
 Method `LSolver.underdamped` can be used for Langevin equation(s) of type
 
 $$
-m \ddot x(t) = -\gamma \dot x(t) + F_x(x(t),y(t),t) + \sqrt{2\gamma k_B T_x(x(t),y(t),t)}\ \xi_x(t),
+m \ddot x(t) = -\gamma \dot x(t) + F_x(x(t),y(t),t) + [2\gamma k_B T_x(x(t),y(t),t)]^{1/2}\ \xi_x(t),
 $$
 
 $$
-m \ddot y(t) = -\gamma \dot y(t) + F_y(x(t),y(t),t) + \sqrt{2\gamma k_B T_y(x(t),y(t),t)}\ \xi_y(t).
+m \ddot y(t) = -\gamma \dot y(t) + F_y(x(t),y(t),t) + [2\gamma k_B T_y(x(t),y(t),t)]^{1/2}\ \xi_y(t).
 $$
 
 Lastly, the method `LSolver.mixed` is specifically for the special combination
 
 $$
-\dot x(t) = \frac{1}{\gamma}F_x(x(t),y(t),t) + \sqrt{2k_B T_x(x(t),y(t),t)/\gamma}\ \xi_x(t),
+\dot x(t) = \frac{1}{\gamma}F_x(x(t),y(t),t) + [2k_B T_x(x(t),y(t),t)/\gamma]^{1/2}\ \xi_x(t),
 $$
 
 $$
-m \ddot y(t) = -\gamma \dot y(t) + F_y(x(t),y(t),t) + \sqrt{2\gamma k_B T_y(x(t),y(t),t)}\ \xi_y(t).
+m \ddot y(t) = -\gamma \dot y(t) + F_y(x(t),y(t),t) + [2\gamma k_B T_y(x(t),y(t),t)]^{1/2}\ \xi_y(t).
 $$
 
 ### Configuration
